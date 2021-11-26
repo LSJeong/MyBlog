@@ -3795,7 +3795,7 @@
 		display: -ms-flex;
 		display: flex;
 		border-bottom: solid 5px #f56a6a;
-		padding: 6em 0 1em 0;
+		padding: 3em 0 1em 0;
 		position: relative;
 	}
 
@@ -3821,7 +3821,7 @@
 		@media screen and (max-width: 1680px) {
 
 			#header {
-				padding-top: 5em;
+				padding-top: 1.5em;
 			}
 
 		}
