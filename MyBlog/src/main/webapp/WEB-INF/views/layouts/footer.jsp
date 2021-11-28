@@ -8,36 +8,19 @@
 </head>
 <body>
 
-	<!-- <section>
-		<header class="major">
-			<h2>Get in touch</h2>
-		</header>
-		<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare
-			velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed
-			aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus
-			aliquam.</p>
-		<ul class="contact">
-			<li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
-			<li class="fa-phone">(000) 000-0000</li>
-			<li class="fa-home">1234 Somewhere Road #8254<br /> Nashville,
-				TN 00000-0000
-			</li>
-		</ul>
-	</section> -->
-	<!-- Footer -->
+	<section>
 	<footer id="footer">
-		<!-- <ul class="contact">
-			<li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
-			<li class="fa-phone">(000) 000-0000</li>
-			<li class="fa-home">1234 Somewhere Road #8254<br /> Nashville,
-				TN 00000-0000
-			</li>
-		</ul> -->
 		<div class="copyright">
 			&copy; Untitled. All rights reserved. Demo Images: <a
 				href="https://unsplash.com">Unsplash</a>. Design: <a
-				href="https://html5up.net">HTML5 UP</a>.
+				href="https://html5up.net">HTML5 UP</a>.0
+			<div><span><img src="images/mail.PNG" width="15px" height="15px">문의 메일 : lsj@naver.com</span>
+				<span><img src="images/call.PNG" width="15px" height="15px">전화 번호 : 010-8763-3834</span>
+				<span><img src="images/home.PNG" width="15px" height="15px">주소 : 대구 달서구 신당동</span>
+			</div>
 		</div>
+		
 	</footer>
+	</section>
 </body>
 </html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.lsj.blog.member.service.MemberMapper">
+<select id="memberSelect" resultType="co.lsj.blog.member.service.MemberVO">
+	SELECT * FROM MEMBER 
+	WHERE ID = #{id}
+	<if test="password != null">   <!-- 로그인 체크시 활용 -->
+		AND PASSWORD = #{password}
+	</if>
+</select>
+
+<select id="memberIdCheck" resultType="boolean">
+	SELECT CASE WHEN(COUNT(*)=1) THEN 'TRUE' ELSE 'FALSE' END 
+	FROM MEMBER
+	WHERE ID = #{id}
+</select>
+
+<insert id="memberInsert" parameterType="co.lsj.blog.member.service.MemberVO">
+	INSERT INTO MEMBER VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, #{author})
+</insert>
+</mapper>

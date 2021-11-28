@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.lsj.blog.study.service.StudyMapper">
+	<select id="studyList" resultType="map">
+		select course, count(*) as cnt from study group by course
+	</select>
+	
+	<select id="studySelectList" resultType="co.lsj.blog.study.service.StudyVO">
+		select * from study where course = #{course} order by wdate desc
+	</select>
+	<insert id="studyInsert" parameterType="co.lsj.blog.study.service.StudyVO">
+		insert into study values(#{course}, #{title}, #{subject}, #{code}, sysdate, study_order.nextval)
+	</insert>
+	<delete id="studyDelete" parameterType="int">
+		delete from study where studyno = #{studyno}
+	</delete>
+</mapper>

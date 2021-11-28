@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.lsj.blog.daily.service.DailyMapper">
+<select id="dailyList" resultType="co.lsj.blog.daily.service.DailyVO">
+	select * from daily order by wdate desc
+</select>
+<delete id="dailyDelete" parameterType="int">
+	delete from daily where dailyno = #{dailyno}
+</delete>
+</mapper>

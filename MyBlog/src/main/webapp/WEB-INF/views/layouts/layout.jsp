@@ -19,17 +19,14 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<!-- Header -->
 				<tiles:insertAttribute name="header" />
 				<tiles:insertAttribute name="body"/> 
-				<tiles:insertAttribute name="footer" />
-
 			</div>
 		</div>
-				
 		<tiles:insertAttribute name="menu" />
 
 	</div>
+		<tiles:insertAttribute name="footer" />		
 
 
 	<!-- Scripts -->

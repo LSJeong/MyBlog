@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.lsj.blog.board.service.BoardMapper">
+
+<select id="boardList" resultType="co.lsj.blog.board.service.BoardVO">
+	select * from board order by no desc
+</select>
+
+<insert id="boardInsert" parameterType="co.lsj.blog.board.service.BoardVO">
+	insert into board values(no_order.nextval, #{title}, #{subject}, #{name}, sysdate, #{id})
+</insert>
+
+<delete id="boardDelete" parameterType="int">
+	delete from board where no = #{no}
+</delete>
+</mapper>
