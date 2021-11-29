@@ -1,7 +1,5 @@
 package co.lsj.blog.board.service;
 
-import java.sql.Date;
-
 import lombok.Getter;
 import lombok.Setter;
 

@@ -21,8 +21,13 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	@Override
-	public List<Map<String, String>> scheduleList() {
+	public List<ScheduleVO> scheduleList() {
 		return map.scheduleList();
+	}
+
+	@Override
+	public int scheduleDelete(ScheduleVO vo) {
+		return map.scheduleDelete(vo);
 	}
 
 }

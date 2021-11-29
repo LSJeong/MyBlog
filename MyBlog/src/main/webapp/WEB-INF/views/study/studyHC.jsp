@@ -16,6 +16,7 @@
 		<header class="major">
 			<h2>HTML/CSS</h2>
 		</header>
+		<span class="image main"><img src="images/html.jpg" width="988px" height="437px" alt="" /></span>
 		
 		<c:forEach items="${studies }" var="study">
 		<div id="dv${study.studyno }">

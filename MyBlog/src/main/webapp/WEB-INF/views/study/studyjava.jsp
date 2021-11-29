@@ -16,7 +16,7 @@
 		<header class="major">
 			<h2>JAVA</h2>
 		</header>
-		
+		<span class="image main"><img src="images/java.PNG" width="988px" height="437px" alt="" /></span>
 		<c:forEach items="${studies }" var="study">
 		<div id="dv${study.studyno }">
 			<hr class="major" />

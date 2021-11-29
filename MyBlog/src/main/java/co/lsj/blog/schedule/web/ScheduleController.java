@@ -1,6 +1,5 @@
 package co.lsj.blog.schedule.web;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,9 +7,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,12 +24,18 @@ public class ScheduleController {
 	@Autowired
 	private ScheduleService scheduleDao;
 	
+
+	@GetMapping("/calender.do")
+	public String calender() {
+		return "study/calender";
+	}
+	
 	@PostMapping("/scheduleInsert.do")
 	@ResponseBody
 	public String scheduleInsert(Model model, HttpServletRequest request, ScheduleVO vo) {
 		vo.setTitle(request.getParameter("title"));
 		vo.setStart_date(request.getParameter("start"));
-		vo.setEnd_date(request.getParameter("end"));
+		vo.setEnd(request.getParameter("end"));
 		int insertOK = scheduleDao.scheduleInsert(vo);
 		String message;
 		if(insertOK > 0) {
@@ -39,18 +46,33 @@ public class ScheduleController {
 		return message;
 	}
 	
-//	@RequestMapping("/scheduleList.do")
-//	@ResponseBody
-//	public List<Map<String,String>> scheduleList(Model model, ScheduleVO vo){
-//		List<Map<String,String>> schedules = new ArrayList<Map<String,String>>();
-//		schedules = scheduleDao.scheduleList();
-//		for(int i=0;i<schedules.size();i++) {
-//			Map<String, String> map = new HashMap<String, String>();
-//			map.put("title", vo.getString("title"));
-//			map.put("start", vo.getString("start_date"));
-//			map.put("end", vo.getString("end_date"));
-//			schedules.add(map);
-//		}
-//		return schedules;
-//	}
+	@RequestMapping("/scheduleList.do")
+	@ResponseBody
+	public List<Map<String, String>> scheduleList(){	
+		List<Map<String, String>> list = null;
+		list = new ArrayList<>();
+		
+		List<ScheduleVO> list2 = scheduleDao.scheduleList();
+		for(ScheduleVO sc : list2) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("title", sc.getTitle());
+			map.put("start", sc.getStart_date());
+			map.put("end", sc.getEnd());
+			
+			list.add(map);
+			
+		}
+		return list;
+	}
+	
+	@RequestMapping("/scheduleDelete.do")
+	@ResponseBody
+	public String scheduleDelete(ScheduleVO vo) {
+		int n = scheduleDao.scheduleDelete(vo);
+		String result = "F";
+		if(n != 0) {
+			result = "T";
+		}
+		return result;
+	}
 }

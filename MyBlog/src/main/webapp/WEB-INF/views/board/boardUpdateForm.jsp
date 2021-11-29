@@ -73,6 +73,7 @@
 			<input type="hidden" id="no" name="no" value="${boards.no }">
 			<ul class="actions" style="padding: 2em 0em 0em 2.5em">
 				<li><button type="button" id="OK" class="button special">Submit</button></li>
+				<li><button type="button" onclick="history.back()">취 소</button></li>
 			</ul>
 		</div>
 		</form>

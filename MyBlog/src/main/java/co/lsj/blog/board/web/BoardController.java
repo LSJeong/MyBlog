@@ -27,14 +27,13 @@ public class BoardController {
 	}
 	
 	@GetMapping("/boardForm.do")
-	public String boardForm(Model model) {
+	public String boardForm() {
 		return "board/boardForm";
 	}
 	
 	@RequestMapping("/boardInsert.do")
 	@ResponseBody
 	public String boardInsert(Model model, BoardVO vo) {
-		System.out.println(vo.getSubject());
 		int n = boardDao.boardInsert(vo);
 		String result = "F";
 		if(n != 0) {
@@ -45,8 +44,7 @@ public class BoardController {
 	
 	@PostMapping("/boardDelete.do")
 	@ResponseBody
-	public String boardDelete(Model model, @Param("no") int no, HttpSession session) {
-		System.out.println(no);
+	public String boardDelete(Model model, @Param("no") int no) {
 		int n = boardDao.boardDelete(no);
 		String result = "F";
 		if(n != 0) {
@@ -56,17 +54,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/daily.do")
-	public String daily(Model model) {
+	public String daily() {
 		return "board/daily";
 	}
 	
 	@RequestMapping("/gallery.do")
-	public String gallery(Model model) {
+	public String gallery() {
 		return "board/gallery";
 	}
 	
 	@RequestMapping("/studyjava.do")
-	public String studyjava(Model model) {
+	public String studyjava() {
 		return "board/studyjava";
 	}
 	

@@ -12,7 +12,6 @@
 			var title = $('#title').val();
 			var subject =$('#subject').val();
 			var name = $('#name').val();
-			var wdate = $('#wdate').val();
 			var id = $('#id').val();
 			
 			if(title == ''){
@@ -23,7 +22,7 @@
 				url: "boardInsert.do",
 				type: "post",
 				dataType: "text",
-				data: {title:title, subject:subject, name:name, wdate:wdate, id:id},
+				data: {title:title, subject:subject, name:name, id:id},
 				success: function (data) {
 					if(data == 'T'){
 						alert('등록되었습니다.');
@@ -43,7 +42,7 @@
 			<h2>한 줄 게 시 판</h2>
 		</header>
 
-		<form id="frm"  method="post" enctype="multipart/form-data">
+		<form id="frm"  method="post" >
 		<div class="features">
 			<table>
 				<tbody>
@@ -57,10 +56,6 @@
 						<td colspan="5"><textarea rows="20" id="subject" name="subject"></textarea></td>
 					</tr>
 					<tr>
-						<th>첨부파일</th>
-						<td colspan="5"><input type="file" name="file" /></td>
-					</tr>
-					<tr>
 						<th>이름</th>
 						<td width="35%"><input type="text" id="name" name="name" value="${name }"></td>
 						<td><td>
@@ -69,9 +64,10 @@
 					</tr>
 				</tbody>
 			</table>
-			<input type="hidden" id="id" name="id" value="${id }">
+			
 			<ul class="actions" style="padding: 2em 0em 0em 2.5em">
 				<li><button type="button" id="OK" class="button special">Submit</button></li>
+				<li><button type="button" onclick="history.back()">취 소</button></li>
 			</ul>
 		</div>
 		</form>

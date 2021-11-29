@@ -15,16 +15,29 @@ public class DailyServiceImpl implements DailyService{
 	@Autowired
 	private DailyMapper map;
 	
-	@RequestMapping("/dailyList.do")
 	@Override
 	public List<DailyVO> dailyList() {
 		return map.dailyList();
 	}
 	
-	@RequestMapping("/dailyDelete.do")
 	@Override
 	public int dailyDelete(int dvno) {
 		return map.dailyDelete(dvno);
+	}
+
+	@Override
+	public int dailyInsert(DailyVO vo) {
+		return map.dailyInsert(vo);
+	}
+
+	@Override
+	public int dailyUpdate(DailyVO vo) {
+		return map.dailyUpdate(vo);
+	}
+
+	@Override
+	public DailyVO dailySelect(int no) {
+		return map.dailySelect(no);
 	}
 
 }

@@ -40,7 +40,6 @@ public class MemberController {
 			
 			result = "T";
 		}
-		System.out.println(session.getAttribute("name"));
 		return result;
 	}
 	
@@ -63,7 +62,6 @@ public class MemberController {
 		if(n != 0) {
 			chk = "1";
 		}
-		System.out.println(chk);
 		return chk;
 	}
 	

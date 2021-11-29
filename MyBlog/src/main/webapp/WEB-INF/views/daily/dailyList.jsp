@@ -18,18 +18,25 @@
 		</header>
 		<span class="image main"><img src="images/sky.PNG" alt="" /></span>
 	
-		<c:forEach items="${dailys }" var="daily" >
+		<c:forEach items="${dailys }" var="daily" varStatus="status" >
 		<div id="dv${daily.dailyno }">
 			<hr class="major" />
-			<span class="image left"><img src="images/dog.PNG" width="100px" height="100px" alt="" /></span>
+			<c:if test="${status.index % 2 == 0}">
+				<span class="image left"><img src="images/dog.PNG" width="50px" height="50px" alt="" /></span>
+			</c:if>
+			<c:if test="${status.index % 2 == 1}">
+				<span class="image left"><img src="images/cat.PNG" width="50px" height="50px" alt="" /></span>
+			</c:if>
 			<h2 style="margin: 0">${daily.title }</h2>
 			<p style="font-size: 8pt;"><fmt:formatDate value="${daily.wdate }" pattern="yyyy-MM-dd HH:mm:ss"/></p>
 			<p style="margin: 0">${fn:replace(daily.subject,replaceChar,"<br/>") }</p>
 			<c:if test="${author eq 'ADMIN' }">
 				<button type="button" style="float: right;" class="button small" onclick="deleteFnc(${daily.dailyno })">삭제</button>
+				<button type="button" style="float: right; margin-right: 5px;" class="button small" onclick="location.href='dailyUpdateForm.do?dailyno=${daily.dailyno }'">수정</button>
 			</c:if>
 			<c:if test="${author ne 'ADMIN' }">
-				<button disabled="disabled" type="button" style="float: right;" class="button small" onclick="deleteFnc(${daily.dailyno })">삭제</button>
+				<button disabled="disabled" type="button" style="float: right;" class="button small">삭제</button>
+				<button disabled="disabled" type="button" style="float: right; margin-right: 5px;" class="button small">수정</button>
 			</c:if>
 		</div>
 		</c:forEach>
@@ -61,9 +68,10 @@
 						alert('삭제 실패하였습니다.')
 					}
 				}
-			}); 
-			
+			}); 			
 		}
+		
+		
 	</script>
 </body>
 </html>

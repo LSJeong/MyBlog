@@ -22,7 +22,7 @@
 				놀러오세요! <br> <br>
 			</p>
 			<ul class="actions">
-				<li><a href="#" class="button big">Learn More</a></li>
+				<li><a href="boardList.do" class="button big">방명록 남기기</a></li>
 			</ul>
 		</div>
 		<span class="image object"> <img src="images/library.PNG"
@@ -38,7 +38,7 @@
 		</header>
 		<div class="features">
 			<article>
-				<span> <a href="https://www.w3schools.com/"  target="_blank"
+				<span> <a href="https://www.w3schools.com/" target="_blank"
 					class="icon fa-diamond"></a>
 				</span>
 				<div class="content">
@@ -49,8 +49,8 @@
 				</div>
 			</article>
 			<article>
-				<span> <a href="https://startbootstrap.com/themes"  target="_blank"
-					class="icon fa-paper-plane"></a></span>
+				<span> <a href="https://startbootstrap.com/themes"
+					target="_blank" class="icon fa-paper-plane"></a></span>
 				<div class="content">
 					<h3>Startbootstrap</h3>
 					<p>Bootstrap Templates & Themes Free Bootstrap themes that are
@@ -59,12 +59,12 @@
 				</div>
 			</article>
 			<article>
-				<span class="icon fa-rocket"></span>
+				<span> <a href="https://mybatis.org/mybatis-3/ko/index.html"
+					target="_blank" class="icon fa-paper-plane"></a></span>
 				<div class="content">
-					<h3>Quam lorem ipsum</h3>
-					<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper
-						dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
-						lorem feugiat tempus aliquam.</p>
+					<h3>Mybatis(마이바티스)</h3>
+					<p>마이바티스는 개발자가 지정한 SQL, 저장프로시저 그리고 몇가지 고급 매핑을 지원하는 퍼시스턴스
+						프레임워크이다. 마이바티스는 JDBC로 처리하는 상당부분의 코드와 파라미터 설정및 결과 매핑을 대신해준다.</p>
 				</div>
 			</article>
 			<article>
@@ -72,9 +72,8 @@
 					class="icon fa-signal"></a></span>
 				<div class="content">
 					<h3>Mvn repository</h3>
-					<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper
-						dolore. Proin aliquam facilisis ante interdum. Sed nulla amet
-						lorem feugiat tempus aliquam.</p>
+					<p>Apache Maven은 자바용 프로젝트 관리도구로 Apache Ant의 대안으로 만들어졌다. 
+                   Apache License로 배포되는 오픈 소스 소프트웨어이다..</p>
 				</div>
 			</article>
 

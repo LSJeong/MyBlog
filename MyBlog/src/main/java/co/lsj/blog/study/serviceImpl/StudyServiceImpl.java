@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.lsj.blog.study.service.StudyMapper;
 import co.lsj.blog.study.service.StudyService;
@@ -16,12 +15,6 @@ public class StudyServiceImpl implements StudyService {
 	@Autowired
 	private StudyMapper map;
 	
-	
-	@Override
-	public List<Map<String, Integer>>  studyList() {
-		return map.studyList();
-	}
-
 	@Override
 	public List<StudyVO> studySelectList(String course){
 		return map.studySelectList(course);

@@ -1,11 +1,5 @@
 package co.lsj.blog.study.web;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import co.lsj.blog.board.service.BoardService;
 import co.lsj.blog.study.service.StudyService;
 import co.lsj.blog.study.service.StudyVO;
 
@@ -23,17 +16,7 @@ import co.lsj.blog.study.service.StudyVO;
 public class StudyController {
 	@Autowired
 	private StudyService studyDao;
-
-	@GetMapping("/calender.do")
-	public String calender(Model model, HttpServletRequest request) {
-
-//		List<Map<String, Integer>> map = studyDao.studyList();
-//		model.addAttribute("studys", map);
-//		System.out.println(model.getAttribute("studys"));
-		return "study/chart";
-
-	}
-
+	
 	@RequestMapping("/studyJavaList.do")
 	public String studyJavaList(Model model) {
 		String course = "JAVA";
@@ -75,14 +58,6 @@ public class StudyController {
 		return result;
 	}
 	
-	/*
-	 * @RequestMapping("/studySelect.do")
-	 * 
-	 * @ResponseBody public String studySelect(Model model, @Param("studyno") int
-	 * studyno, StudyVO vo ) { String result; vo = studyDao.studySelect(studyno);
-	 * model.addAttribute("studies",vo); if(vo != null) { result = "T"; }else {
-	 * result = "F"; } return result; }
-	 */
 	
 	@GetMapping("/studyUpdateForm.do")
 	public String studyUpdateForm(Model model, @Param("studyno") int studyno ) {
@@ -93,8 +68,6 @@ public class StudyController {
 	@PostMapping("/studyUpdate.do")
 	@ResponseBody
 	public String studyUpdate(Model model, StudyVO vo) {
-		System.out.println(vo.getStudyno());
-		System.out.println(vo.getTitle());
 		int n = studyDao.studyUpdate(vo);
 		String result = "F";
 		if (n != 0) {

@@ -86,8 +86,7 @@
 						</tr>
 						<tr>
 							<th>코드</th>
-							<td colspan="5"><textarea rows="20" id="code"
-									name="code" >${studies.code }</textarea></td>
+							<td colspan="5"><textarea rows="20" id="code" name="code" >${studies.code }</textarea></td>
 						</tr>
 
 

@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.lsj.blog.daily.service.DailyMapper">
+
 <select id="dailyList" resultType="co.lsj.blog.daily.service.DailyVO">
 	select * from daily order by wdate desc
 </select>
+
 <delete id="dailyDelete" parameterType="int">
 	delete from daily where dailyno = #{dailyno}
 </delete>
+
+<insert id="dailyInsert" parameterType="co.lsj.blog.daily.service.DailyVO">
+	insert into daily values(#{title}, #{subject}, sysdate, daily_order.nextval)
+</insert>
+
+<update id="dailyUpdate" parameterType="co.lsj.blog.daily.service.DailyVO">
+	update daily set title = #{title}, subject = #{subject} where dailyno = #{dailyno}
+</update>
+
+<select id="dailySelect" resultType="co.lsj.blog.daily.service.DailyVO">
+	select * from daily where dailyno = #{dailyno}
+</select>
 </mapper>
