@@ -33,7 +33,7 @@
 						</ul></li>
 					<li><a href="gallery.do">Gallery</a></li>
 					<li><a href="boardList.do">한줄 게시판</a></li>
-					<li><a href="studyList.do">About Me</a></li>
+					<li><a href="calender.do">About Me</a></li>
 					
 				</ul>
 			</nav>

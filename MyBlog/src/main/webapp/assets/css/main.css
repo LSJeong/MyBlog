@@ -2875,6 +2875,7 @@
 	}
 	
 	.fc-scrollgrid  fc-scrollgrid-liquid{
+		margin: 0 0 0 0;
 		height: 100%;
 	}
 	.fc-scrollgrid-section fc-scrollgrid-section-body  fc-scrollgrid-section-liquid{

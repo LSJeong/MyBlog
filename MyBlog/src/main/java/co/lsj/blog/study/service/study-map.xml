@@ -14,4 +14,12 @@
 	<delete id="studyDelete" parameterType="int">
 		delete from study where studyno = #{studyno}
 	</delete>
+	
+	<select id="studySelect" resultType="co.lsj.blog.study.service.StudyVO">
+		select * from study where studyno = #{studyno}
+	</select>
+	
+	<update id="studyUpdate" parameterType="co.lsj.blog.study.service.StudyVO">
+		update study set title = #{title}, subject = #{subject}, code = #{code}, course = #{course} where studyno = #{studyno}
+	</update>
 </mapper>

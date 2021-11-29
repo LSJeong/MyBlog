@@ -7,6 +7,8 @@ import java.util.Map;
 public interface StudyService {
 	List<Map<String, Integer>> studyList();
 	List<StudyVO> studySelectList(String course);
-	int studyDelete(int no);
+	StudyVO studySelect(int no);
 	int studyInsert(StudyVO vo);
+	int studyUpdate(StudyVO vo);
+	int studyDelete(int no);
 }

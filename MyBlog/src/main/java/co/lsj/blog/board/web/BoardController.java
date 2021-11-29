@@ -69,4 +69,22 @@ public class BoardController {
 	public String studyjava(Model model) {
 		return "board/studyjava";
 	}
+	
+	@GetMapping("/boardUpdateForm.do")
+	public String boardUpdateForm(Model model, BoardVO vo) {
+		model.addAttribute("boards", boardDao.boardSelect(vo));
+		return "board/boardUpdateForm";
+	}
+	
+	@RequestMapping("/boardUpdate.do")
+	@ResponseBody
+	public String boardUpdate(Model model, BoardVO vo) {
+		int n = boardDao.boardUpdate(vo);
+		String result = "F";
+		if(n != 0) {
+			result = "T";
+		}
+		return result;
+	}
+	
 }

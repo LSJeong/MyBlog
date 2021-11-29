@@ -22,6 +22,7 @@
 			 $.ajax({
 				url: "boardInsert.do",
 				type: "post",
+				dataType: "text",
 				data: {title:title, subject:subject, name:name, wdate:wdate, id:id},
 				success: function (data) {
 					if(data == 'T'){
@@ -42,7 +43,7 @@
 			<h2>한 줄 게 시 판</h2>
 		</header>
 
-		<form id="frm"  method="post">
+		<form id="frm"  method="post" enctype="multipart/form-data">
 		<div class="features">
 			<table>
 				<tbody>
@@ -55,7 +56,10 @@
 						<th>내용</th>
 						<td colspan="5"><textarea rows="20" id="subject" name="subject"></textarea></td>
 					</tr>
-					
+					<tr>
+						<th>첨부파일</th>
+						<td colspan="5"><input type="file" name="file" /></td>
+					</tr>
 					<tr>
 						<th>이름</th>
 						<td width="35%"><input type="text" id="name" name="name" value="${name }"></td>

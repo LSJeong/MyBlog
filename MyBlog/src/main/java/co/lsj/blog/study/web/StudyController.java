@@ -24,12 +24,12 @@ public class StudyController {
 	@Autowired
 	private StudyService studyDao;
 
-	@GetMapping("/studyList.do")
-	public String studyList(Model model, HttpServletRequest request) {
+	@GetMapping("/calender.do")
+	public String calender(Model model, HttpServletRequest request) {
 
-		List<Map<String, Integer>> map = studyDao.studyList();
-		model.addAttribute("studys", map);
-		System.out.println(model.getAttribute("studys"));
+//		List<Map<String, Integer>> map = studyDao.studyList();
+//		model.addAttribute("studys", map);
+//		System.out.println(model.getAttribute("studys"));
 		return "study/chart";
 
 	}
@@ -66,8 +66,36 @@ public class StudyController {
 
 	@PostMapping("/studyInsert.do")
 	@ResponseBody
-	public String sutdyInsert(Model model, StudyVO vo) {
+	public String studyInsert(Model model, StudyVO vo) {
 		int n = studyDao.studyInsert(vo);
+		String result = "F";
+		if (n != 0) {
+			result = "T";
+		}
+		return result;
+	}
+	
+	/*
+	 * @RequestMapping("/studySelect.do")
+	 * 
+	 * @ResponseBody public String studySelect(Model model, @Param("studyno") int
+	 * studyno, StudyVO vo ) { String result; vo = studyDao.studySelect(studyno);
+	 * model.addAttribute("studies",vo); if(vo != null) { result = "T"; }else {
+	 * result = "F"; } return result; }
+	 */
+	
+	@GetMapping("/studyUpdateForm.do")
+	public String studyUpdateForm(Model model, @Param("studyno") int studyno ) {
+		model.addAttribute("studies",studyDao.studySelect(studyno));
+		return "study/studyUpdateForm";
+	}
+	
+	@PostMapping("/studyUpdate.do")
+	@ResponseBody
+	public String studyUpdate(Model model, StudyVO vo) {
+		System.out.println(vo.getStudyno());
+		System.out.println(vo.getTitle());
+		int n = studyDao.studyUpdate(vo);
 		String result = "F";
 		if (n != 0) {
 			result = "T";

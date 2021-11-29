@@ -30,9 +30,11 @@
 			</c:if>
 			<c:if test="${author eq 'ADMIN' }">
 				<button type="button" style="float: right;" class="button small" onclick="deleteFnc(${study.studyno })">삭제</button>
+				<button type="button" style="float: right;  margin-right: 5px;" class="button small" onclick="location.href='studyUpdateForm.do?studyno=${study.studyno }'">수정</button>
 			</c:if>
 			<c:if test="${author ne 'ADMIN' }">
 				<button disabled="disabled" type="button" style="float: right;" class="button small" onclick="deleteFnc(${study.studyno })">삭제</button>
+				<button disabled="disabled" type="button" style="float: right;  margin-right: 5px;" class="button small" onclick="location.href='studyUpdateForm.do?studyno=${study.studyno }'">수정</button>
 			</c:if>
 			</div>
 		</c:forEach>
@@ -55,6 +57,7 @@
 				url: "studyDelete.do",
 				type: "post",
 				data: {studyno:studyno},
+				dataType: "text",
 				success: function (data) {
 					if(data == 'T'){
 						document.getElementById(dvno).remove();

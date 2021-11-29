@@ -13,4 +13,12 @@
 <delete id="boardDelete" parameterType="int">
 	delete from board where no = #{no}
 </delete>
+
+<select id="boardSelect" resultType="co.lsj.blog.board.service.BoardVO">
+	select * from board where no = #{no} and id = #{id}
+</select>
+
+<update id="boardUpdate" parameterType="co.lsj.blog.board.service.BoardVO">
+	update board set title = #{title}, subject = #{subject}, name = #{name} where no= #{no} and id = #{id}
+</update>
 </mapper>

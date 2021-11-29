@@ -5,9 +5,7 @@
 .fc-not-allowed .fc-event { /* override events' custom cursors */
   cursor: not-allowed;
 }
-.fc-daygrid-day-frame{
-	width: 110px;
-}
+
 /* TODO: not attached to body. attached to specific els. move */
 .fc-unselectable {
   -webkit-user-select: none;
@@ -31,16 +29,14 @@
     box-sizing: border-box;
   }
 .fc table {
-	margin-left: -10px;
     border-collapse: collapse;
     border-spacing: 0;
     font-size: 1em; /* normalize cross-browser */
+    margin: 0 0 0 0;
   }
 .fc th {
     text-align: center;
   }
-  
-  
 .fc th,
   .fc td {
     vertical-align: top;
@@ -288,7 +284,6 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
   }
 .fc .fc-toolbar {
     display: flex;
-    margin-left: 5em;
     justify-content: space-between;
     align-items: center;
   }
@@ -311,7 +306,6 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc-direction-rtl .fc-toolbar-ltr { /* when the toolbar-chunk positioning system is explicitly left-to-right */
     flex-direction: row-reverse;
   }
-
 .fc .fc-scroller {
     -webkit-overflow-scrolling: touch;
     position: relative; /* for abs-positioned elements within */
@@ -436,11 +430,6 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     display: inline-block; /* x-browser for when sticky (when multi-tier header) */
     padding: 2px 4px;
   }
-  
-  .fc-col-header{
-  	margin: 0;
-  }
-  
 .fc .fc-bg-event,
   .fc .fc-non-business,
   .fc .fc-highlight {

@@ -21,6 +21,7 @@
 		<c:forEach items="${dailys }" var="daily" >
 		<div id="dv${daily.dailyno }">
 			<hr class="major" />
+			<span class="image left"><img src="images/dog.PNG" width="100px" height="100px" alt="" /></span>
 			<h2 style="margin: 0">${daily.title }</h2>
 			<p style="font-size: 8pt;"><fmt:formatDate value="${daily.wdate }" pattern="yyyy-MM-dd HH:mm:ss"/></p>
 			<p style="margin: 0">${fn:replace(daily.subject,replaceChar,"<br/>") }</p>
@@ -36,10 +37,10 @@
 		
 	<hr class="major" />
 	<c:if test="${author eq 'ADMIN' }">
-		<button type="button" class="button special">Write</button>
+		<button type="button" class="button special" onclick="location.href='dailyForm.do'">Write</button>
 	</c:if>
 	<c:if test="${author ne 'ADMIN' }">
-		<button disabled="disabled" type="button" class="button special">Write</button>
+		<button disabled="disabled" type="button" class="button special" >Write</button>
 	</c:if>
 	<br/><br/><br/>
 	</section>

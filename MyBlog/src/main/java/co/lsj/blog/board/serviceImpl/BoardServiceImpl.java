@@ -20,8 +20,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO boardSelect() {
-		return map.boardSelect();
+	public BoardVO boardSelect(BoardVO vo) {
+		return map.boardSelect(vo);
 	}
 
 	@Override

@@ -68,6 +68,7 @@ function formCheck() {
 		url : "memberJoin.do",
 		type: "post",
 		data: {id : id, password:password, name:name, address:address, tel:tel, author:author},
+		dataType: "text",
 		success: function (data) {
 			if(data == '1'){
 				alert("회원가입되었습니다.");

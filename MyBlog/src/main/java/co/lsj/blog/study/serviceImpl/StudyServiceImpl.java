@@ -36,6 +36,16 @@ public class StudyServiceImpl implements StudyService {
 	public int studyInsert(StudyVO vo) {
 		return map.studyInsert(vo);
 	}
+
+	@Override
+	public StudyVO studySelect(int no) {
+		return map.studySelect(no);
+	}
+
+	@Override
+	public int studyUpdate(StudyVO vo) {
+		return map.studyUpdate(vo);
+	}
 	
 	
 }

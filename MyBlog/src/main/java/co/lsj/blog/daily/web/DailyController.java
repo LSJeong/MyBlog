@@ -19,7 +19,7 @@ public class DailyController {
 	public String dailyList(Model model) {
 		model.addAttribute("dailys", dailyDao.dailyList());
 		System.out.println(dailyDao.dailyList());
-		return "board/daily";
+		return "daily/dailyList";
 	}
 	
 	@PostMapping("/dailyDelete.do")
@@ -37,5 +37,10 @@ public class DailyController {
 	public String chart(Model model) {
 		
 		return "study/chart";
+	}
+	
+	@RequestMapping("/dailyForm.do")
+	public String dailyForm() {
+		return "daily/dailyForm";
 	}
 }

@@ -31,6 +31,7 @@
 					code : code,
 					course : course
 				},
+				dataType: "text",
 				success : function(data) {
 					if (data == 'T') {
 						alert('등록되었습니다.');
@@ -61,7 +62,7 @@
 						<tr>
 							<th width="10%">제목</th>
 							<td colspan="5"><input id="title" name="title" type="text"
-								width="80%"></td>
+								width="80%" value="${studies.title }"></td>
 						</tr>
 						<tr>
 							<th width="10%">설명</th>
@@ -91,7 +92,8 @@
 
 				</table>
 				<ul class="actions" style="padding: 2em 0em 0em 2.5em">					
-					<li><button type="button" id="OK" class="button special">Submit</button></li>					
+					<li><button type="button" id="OK" class="button special">Submit</button></li>	
+					<li><button type="button" onclick="history.back()">취 소</button></li>							
 				</ul>
 			</div>
 		</form>

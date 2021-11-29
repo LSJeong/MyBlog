@@ -7,14 +7,27 @@
 <link href='fullcalendar-5.10.0/lib/main.css' rel='stylesheet' />
 <script src='fullcalendar-5.10.0/lib/main.js'></script>
 <style type="text/css">
-	.fc-scroller{
-		margin-left: -2.5em;
+	.fc table {
+		margin: 0 0 0 0;
 	}
+	/* fc-scrollgrid  fc-scrollgrid-liquid{
+		marign: 0 0 0 0;
+	}
+	.fc-scrollgrid-section fc-scrollgrid-section-header{
+		margin-left: -20px;
+	} */
 </style>
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
+		
+		$.ajax({
+			url: "scheduleList.do",
+			dataType: "JSON",
+			success: function () {
+				
+			console.log();
+		
 		var calendarEl = document.getElementById('calendar');
-
 		var calendar = new FullCalendar.Calendar(calendarEl, {
 			headerToolbar : {
 				left : 'prev,next today',
@@ -25,7 +38,7 @@
 			navLinks : true, // can click day/week names to navigate views
 			selectable : true,
 			selectMirror : true,
-			select : function(arg) {
+			select : /* function(arg) {
 				var title = prompt('Event Title:');
 				if (title) {
 					calendar.addEvent({
@@ -36,7 +49,7 @@
 					})
 				}
 				calendar.unselect()
-			},
+			} */ secallback,
 			eventClick : function(arg) {
 				if (confirm('Are you sure you want to delete this event?')) {
 					arg.event.remove()
@@ -73,23 +86,48 @@
 			}, {
 				title : 'Meeting',
 				start : '2020-09-12T14:30:00'
-			}, {
-				title : 'Happy Hour',
-				start : '2020-09-12T17:30:00'
-			}, {
-				title : 'Dinner',
-				start : '2020-09-12T20:00:00'
-			}, {
-				title : 'Birthday Party',
-				start : '2020-09-13T07:00:00'
-			}, {
-				title : 'Click for Google',
-				url : 'http://google.com/',
-				start : '2020-09-28'
-			} ]
+			}]
 		});
-
+		
+		function secallback(arg) {
+			var title = prompt('신규 이벤트 등록: ');
+			var start = arg.endStr;
+			var end = arg.endStr;
+			console.log(start);
+			console.log(end);
+			
+             if (title) {
+            	$.ajax({
+    				url : "scheduleInsert.do",
+    				type : "post",
+    				data : {
+    					title : title,
+    					start : start,
+    					end : end
+    				},
+    				dataType: "text",
+    				success : function(data) {
+    					if (data == 'OK') {
+    						calendar.addEvent({
+    		                    title: title,
+    		                    start: arg.start,
+    		                    end: arg.end,
+    		                    allDay: arg.allDay
+    		                  })
+						console.log(data);
+						alert('저장!')
+    					}
+					}
+            	})
+			} 
+		}
+            
+		
+		
 		calendar.render();
+			}
+		})
+		
 	});
 </script>
 </head>
